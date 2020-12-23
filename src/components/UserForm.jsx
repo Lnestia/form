@@ -13,22 +13,22 @@ export const UserForm = () => {
     <>
       <div>
         <label style={formcolumn}>
-          PhoneNumber:
+          Name:
           <input type="text" />
         </label>
 
         <label style={formcolumn}>
-          PhoneNumber:
+          Name:
           <input type="text" />
         </label>
 
         <label style={formcolumn}>
-          PhoneNumber:
+          Name:
           <input type="text" />
         </label>
 
         <label style={formcolumn}>
-          PhoneNumber:
+          Name:
           <input type="text" />
         </label>
 
