@@ -13,22 +13,22 @@ export const UserForm = () => {
     <>
       <div>
         <label style={formcolumn}>
-          Name:
+          UserForm:
           <input type="text" />
         </label>
 
         <label style={formcolumn}>
-          Name:
+          UserForm:
           <input type="text" />
         </label>
 
         <label style={formcolumn}>
-          Name:
+          UserForm:
           <input type="text" />
         </label>
 
         <label style={formcolumn}>
-          Name:
+          UserForm:
           <input type="text" />
         </label>
 

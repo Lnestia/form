@@ -1,6 +1,6 @@
 import React from "react";
 
-export const PhoneNumber = () => {
+export const TestForm = () => {
   const formcolumn = {
     padding: "30px",
     display: "flex",
@@ -13,22 +13,22 @@ export const PhoneNumber = () => {
   return (
     <>
       <label style={formcolumn}>
-        PhoneNumber:
+        TestForm:
         <input type="text" />
       </label>
 
       <label style={formcolumn}>
-        PhoneNumber:
+        TestForm:
         <input type="text" />
       </label>
 
       <label style={formcolumn}>
-        PhoneNumber:
+        TestForm:
         <input type="text" />
       </label>
 
       <label style={formcolumn}>
-        PhoneNumber:
+        TestForm:
         <input type="text" />
       </label>
 

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { InputForm } from "./components/InputForm";
 import { UserForm } from "./components/UserForm";
-import { PhoneNumber } from "./components/PhoneNumber";
+import { SampleForm } from "./components/SampleForm";
+import { TestForm } from "./components/TestForm";
 import "./styles.css";
 
 //Tab関係
@@ -17,27 +19,34 @@ const selecttabs = {
 };
 
 //Form関係
-const ViewTest = () => {
-  return <h1>おはようございます。</h1>;
+const ViewInputForm = () => {
+  return <InputForm />;
 };
 
 const ViewUserForm = () => {
   return <UserForm />;
 };
 
-const ViewPhoneNumber = () => {
-  return <PhoneNumber />;
+const ViewSampleForm = () => {
+  return <SampleForm />;
+};
+const ViewTestForm = () => {
+  return <TestForm />;
 };
 
 //propsの結果について返り値を渡す
 const SelectForm = (props) => {
   switch (props.setSelectForm) {
     case 0:
-      return <ViewTest />;
+      return <ViewInputForm />;
     case 1:
       return <ViewUserForm />;
+    case 2:
+      return <ViewSampleForm />;
+    case 3:
+      return <ViewTestForm />;
     default:
-      return <ViewPhoneNumber />;
+      return <ViewInputForm />;
   }
 };
 
@@ -52,17 +61,17 @@ const App = () => {
   return (
     <>
       <div style={selecttabs}>
-        <label onClick={(setFormNumber) => onClickSelect(0)} style={selecttab}>
-          TEST1
+        <label onClick={() => onClickSelect(0)} style={selecttab}>
+          InputoForm
         </label>
         <label onClick={() => onClickSelect(1)} style={selecttab}>
-          TEST2
+          UserForm
         </label>
         <label onClick={() => onClickSelect(2)} style={selecttab}>
-          TEST3
+          SampleForm
         </label>
         <label onClick={() => onClickSelect(3)} style={selecttab}>
-          TEST4
+          TestForm
         </label>
       </div>
       <SelectForm setSelectForm={formNumber} />
