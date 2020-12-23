@@ -1,56 +1,73 @@
 import React, { useState } from "react";
-
-import "./styles.css";
 import { UserForm } from "./components/UserForm";
+import { PhoneNumber } from "./components/PhoneNumber";
+import "./styles.css";
 
-export const App = () => {
-  const selecttab = {
-    width: "25%",
-    color: "green",
-    float: "left"
-  };
-  const selecttabs = {
-    margin: " auto",
-    width: "60%",
-    padding: "50px",
-    TextAlign: "center"
-  };
-  const [selectTab] = useState(["TEST1", "TEST2", "TEST3", "TEST4"]);
-  const onClickSelect = (index) => {
-    let setForm = 0;
-    switch (index) {
-      case 0:
-        console.log(0);
-        setForm = <p>tdfdddddddddddddddddddddddddest</p>;
-        break;
-      default:
-        console.log("etc");
-        setForm = <UserForm />;
-        break;
-    }
+//Tab関係
+const selecttab = {
+  width: "25%",
+  color: "green",
+  float: "left"
+};
+const selecttabs = {
+  margin: " auto",
+  width: "60%",
+  padding: "50px",
+  TextAlign: "center"
+};
 
-    return (
-      <>
-        <div>{setForm}</div>
-      </>
-    );
+//Form関係
+const ViewTest = () => {
+  return <h1>おはようございます。</h1>;
+};
+
+const ViewUserForm = () => {
+  return <UserForm />;
+};
+
+const ViewPhoneNumber = () => {
+  return <PhoneNumber />;
+};
+
+//propsの結果について返り値を渡す
+const SelectForm = (props) => {
+  switch (props.setSelectForm) {
+    case 0:
+      return <ViewTest />;
+    case 1:
+      return <ViewUserForm />;
+    default:
+      return <ViewPhoneNumber />;
+  }
+};
+
+// nowHour={}の中の数字を変えれば画面に表示される挨拶が変わる。
+const App = () => {
+  const [formNumber, setFormNumber] = useState(0);
+  const onClickSelect = (number) => {
+    console.log(number);
+    setFormNumber(number);
   };
+
   return (
     <>
-      <div className="App">
-        <h1>Sample form</h1>
-        <h2>input sample </h2>
-        <div style={selecttabs}>
-          {selectTab.map((tab, index) => {
-            return (
-              <div key={tab} style={selecttab} className="selecttab">
-                <label onClick={() => onClickSelect(index)}>{tab}</label>
-              </div>
-            );
-          })}
-        </div>
+      <div style={selecttabs}>
+        <label onClick={(setFormNumber) => onClickSelect(0)} style={selecttab}>
+          TEST1
+        </label>
+        <label onClick={() => onClickSelect(1)} style={selecttab}>
+          TEST2
+        </label>
+        <label onClick={() => onClickSelect(2)} style={selecttab}>
+          TEST3
+        </label>
+        <label onClick={() => onClickSelect(3)} style={selecttab}>
+          TEST4
+        </label>
       </div>
+      <SelectForm setSelectForm={formNumber} />
     </>
   );
 };
+
 export default App;
